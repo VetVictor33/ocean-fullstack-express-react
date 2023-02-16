@@ -15,13 +15,47 @@ async function main() {
     const app = express();
     app.use(express.json());
 
+    //Endpoint / [GET] - home
     app.get("/", function (req, res) {
         res.send("Welcome to the backend!");
     });
 
+    //Endpoint /itens [GET] - list of itens
     app.get("/itens", async function (req, res) {
         const documents = await collection.find().toArray();
         res.send(documents);
+    })
+
+    //Endpoint /itens/id [GET] - one item
+    app.get("/itens/:id", async function (req, res) {
+        const id = req.params.id;
+        const item = await collection.findOne({ _id: new ObjectId(id) })
+        res.send(item);
+    })
+
+    //Endpoint /itens [POST] - create one
+    app.post("/item", async function (req, res) {
+        const item = req.body;
+        await collection.insertOne(item);
+        res.send(`${item} adicionado com sucesso!`)
+    });
+
+    //Endpoint /itens/id [PUT] -update one
+    app.put("itens/:id", async function (req, res) {
+        const id = req.params.id;
+        const body = req.body;
+
+        await collection.updateOne(
+            { _id: new ObjectId(id) },
+            { $set: body }
+        );
+        res.send(body);
+    })
+
+    app.delete("/itens/:id", async function (req, res) {
+        const id = req.params.id;
+        const item = await collection.deleteOne({ _id: new ObjectId(id) });
+        res.send("Item deletado com sucesso");
     })
 
     app.listen(3000)
