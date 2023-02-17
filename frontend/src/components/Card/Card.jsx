@@ -1,8 +1,11 @@
+import './Card.css'
+
 function Card() {
     return (
-        <div className="card">
-            <h1>Esse é o card bom</h1>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Six-handed_500_playing_cards.jpg/250px-Six-handed_500_playing_cards.jpg" alt="summoner skull card" />
+        <div className="Card">
+            <h1>Rick Sanchez</h1>
+            <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="" />
+            <p>Esse é o Rick and Morty</p>
         </div>
     )
 }
