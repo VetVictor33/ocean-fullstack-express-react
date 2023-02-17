@@ -1,0 +1,18 @@
+.Card {
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+
+    border: solid 1px gray;
+    border-radius: 1rem;
+    box-shadow: 1px 1px aliceblue;
+}
+
+.Card>h1,
+.Card>p {
+    color: white;
+}
+
+.Card>img {
+    border-radius: 1rem;
+    width: 300px
+}
