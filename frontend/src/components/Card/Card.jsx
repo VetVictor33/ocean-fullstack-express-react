@@ -1,11 +1,12 @@
 import './Card.css'
 
-function Card() {
+function Card(props) {
+    const item = props.item;
     return (
         <div className="Card">
-            <h1>Rick Sanchez</h1>
-            <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="" />
-            <p>Esse é o Rick and Morty</p>
+            <h1>{item.nome}</h1>
+            <img src={item.imagemUrl} alt="" />
+            <p>Esse é o card bom, que card bom!</p>
         </div>
     )
 }
