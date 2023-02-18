@@ -1,9 +1,13 @@
-import './App.css'
-import ReadAll from './components/ReadAll/ReadAll'
+import './App.css';
+import ReadAll from './components/ReadAll/ReadAll';
+import Header from './components/Header/Header';
 
 function App() {
   return (
-    <ReadAll />
+    <div>
+      <Header />
+      <ReadAll />
+    </div>
   )
 }
 
