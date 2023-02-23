@@ -21,6 +21,7 @@
  * desse componente <Tag /> recém criado.
  */
 
+import { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import "./ReadAll.css";
 
@@ -61,21 +62,23 @@ const itemsMock = [
 
 function ReadAll() {
 
-    const items = [];
+    /*const itemsState = useState([]);
+    const item = itemsState[0];
+    const setItems = [1];*/
+    const [items, setItems] = useState([]);
 
     async function request() {
         const url = 'http://localhost:3000/itens'
         const response = await fetch(url);
         const data = await response.json();
 
-
-        for (let item of data) {
-            items.push(item)
-        }
-
-        console.log(items);
+        setItems(data)
     }
-    request()
+
+    //impede que o componente entre em loop infito por causa do setItems()
+    useEffect(function () {
+        request()
+    }, [])
 
     return (
         <div className="ReadAll">
