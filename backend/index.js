@@ -1,6 +1,6 @@
 const express = require("express");
-
 const { MongoClient, ObjectId } = require("mongodb");
+const cors = require("cors");
 
 const DB_URL = "mongodb+srv://admin:YnGK2ixOqEdBJy8Q@cluster0.vgwirza.mongodb.net";
 const DB_NAME = "ocean-fullstack-09-02-2023";
@@ -14,6 +14,7 @@ async function main() {
 
     const app = express();
     app.use(express.json());
+    app.use(cors());
 
     //Endpoint / [GET] - home
     app.get("/", function (req, res) {

@@ -26,7 +26,7 @@ import "./ReadAll.css";
 
 
 //Mock items
-const items = [
+const itemsMock = [
     {
         "_id": "63ef87a3387ea92af85f95bd",
         "nome": "Rick Sanchez",
@@ -60,6 +60,23 @@ const items = [
 ]
 
 function ReadAll() {
+
+    const items = [];
+
+    async function request() {
+        const url = 'http://localhost:3000/itens'
+        const response = await fetch(url);
+        const data = await response.json();
+
+
+        for (let item of data) {
+            items.push(item)
+        }
+
+        console.log(items);
+    }
+    request()
+
     return (
         <div className="ReadAll">
             {items.map(function (item) {
