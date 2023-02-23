@@ -2,7 +2,6 @@ import Tag from '../Tag/Tag';
 import './Card.css'
 
 let i = 0
-let xoxota = ['xoxota', 'xoxotinha', 'xoxoxoxotinha']
 
 function Card(props) {
     const item = props.item;
