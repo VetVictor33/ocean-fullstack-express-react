@@ -5,12 +5,13 @@ let i = 0
 
 function Card(props) {
     const item = props.item;
-    const itemTags = props.item.tags;
     return (
         <div className="Card">
             <h1>{item.nome}</h1>
             <img src={item.imagemUrl} alt="" />
-            <Tag tags={item.tags} />
+            {item.tags && ( //renderização condicional, só renderiza se houver tags
+                <Tag tags={item.tags} />
+            )}
         </div>
     )
 }

@@ -37,13 +37,13 @@ const items = [
         "_id": "63ef87df387ea92af85f95be",
         "nome": "Morty Smith",
         "imagemUrl": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-        "tags": ['adolescete', 'filho', 'neto']
+        //"tags": ['adolescente', 'filho', 'neto']
     },
     {
         "_id": "63ef87f0387ea92af85f95bf",
         "nome": "Summer Smith",
         "imagemUrl": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
-        "tags": ['adolescete', 'filha', 'neta']
+        "tags": ['adolescente', 'filha', 'neta']
     },
     {
         "_id": "63ef8802387ea92af85f95c0",
