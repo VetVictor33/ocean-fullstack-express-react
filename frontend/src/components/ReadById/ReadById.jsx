@@ -26,7 +26,7 @@ function ReadById() {
     //const [nomedoestado, nomedafuncaoqueatualizaoestado] = usestate([])
     const [item, setItem] = useState([]);
     async function request(id) {
-        const url = `http://localhost:3000/personagem/${id}`;
+        const url = `https://rickandmorty-app-nzxp.onrender.com/personagem/${id}`;
         const response = await fetch(url);
         const data = await response.json();
         setItem(data)
