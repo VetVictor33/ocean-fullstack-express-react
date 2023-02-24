@@ -49,7 +49,7 @@ function ReadAll() {
 
     async function request() {
         //const url = 'http://localhost:3000/personagens'
-        const url = 'https://rickandmorty-app-nzxp.onrender.com/itens'
+        const url = 'https://rickandmorty-app-nzxp.onrender.com/personagens'
         const response = await fetch(url);
         const data = await response.json();
 
