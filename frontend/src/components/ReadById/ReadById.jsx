@@ -6,8 +6,7 @@ import './ReadById.css'
 function ReadById() {
     //inicio do bloco feito com ajuda do chatgpt
     const input = useRef(null);
-    function buscaIdItem(event) {
-        const id = event.target.value;
+    function buscaIdItem(id) {
         request(id);
     }
     useEffect(() => {
@@ -15,7 +14,7 @@ function ReadById() {
             if (event.key != 'Enter') {
                 return
             }
-            buscaIdItem(event)
+            buscaIdItem(event.target.value)
             event.target.value = ''
         });
     }, []);
@@ -32,7 +31,7 @@ function ReadById() {
     return (
         <div className="ReadById">
             <div className="input-div">
-                <label htmlFor="getItem">Digite o id do personagem</label>
+                <label htmlFor="getItem">Digite o id da personagem:</label>
                 <input type="text" ref={input} />
             </div>
             <div className="main">
