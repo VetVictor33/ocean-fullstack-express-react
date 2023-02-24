@@ -50,12 +50,11 @@ async function main() {
             return
         }
 
-        const { insertCount } = await collection.insertOne(personagem);
-        /*
-        if (insertCount !== 1) {
+        const result = await collection.insertOne(personagem);
+        if (!result.acknowledged) {
             res.status(500).send({ message: 'Erro ao criar o personagem.' })
             return
-        }*/
+        }
 
         res.status(201).send(personagem);
     });
