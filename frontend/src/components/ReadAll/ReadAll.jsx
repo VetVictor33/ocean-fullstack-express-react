@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import "./ReadAll.css";
+
+//React Hooks
+import { useEffect, useState } from "react";
 
 
 //Mock items
@@ -46,12 +48,12 @@ function ReadAll() {
     const [items, setItems] = useState([]);
 
     async function request() {
-        //const url = 'http://localhost:3000/itens'
-        const url = 'https://rickandmorty-app-nzxp.onrender.com/itens'
+        const url = 'http://localhost:3000/itens'
+        //const url = 'https://rickandmorty-app-nzxp.onrender.com/itens'
         const response = await fetch(url);
         const data = await response.json();
 
-        setItems(data)
+        setItems(data)//função para renderizar novamente o componente
     }
 
     //impede que o componente entre em loop infito por causa do setItems()

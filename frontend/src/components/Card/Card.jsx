@@ -1,7 +1,6 @@
 import Tag from '../Tag/Tag';
 import './Card.css'
 
-let i = 0
 
 function Card(props) {
     const item = props.item;
@@ -12,6 +11,7 @@ function Card(props) {
             {item.tags && ( //renderização condicional, só renderiza se houver tags
                 <Tag tags={item.tags} />
             )}
+            <p>ID: {item._id}</p>
         </div>
     )
 }

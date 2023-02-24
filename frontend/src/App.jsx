@@ -1,24 +1,22 @@
 import './App.css';
 import ReadAll from './components/ReadAll/ReadAll';
 import Header from './components/Header/Header';
-
-/**
- * Novos desafios!
- *
- * Tecnologias: ReactJS; Criação de componente; UseState; UseEffect.
- * 1. Criar um componente ReadById
- * 2. Dentro do componente, realizar uma requisição para o endpoint de Read by ID no backend
- * 3. Pegar as informações do backend e enviar para o componente Card
- *
- * Dica: Pode ocultar o componente ReadAll enquanto tiver construindo o ReadById, para não
- * se confundir nas requisições
- */
+import ReadById from './components/ReadById/ReadById';
+import { useState } from "react";
 
 function App() {
+  //inico bloco criado com ajuda do ChatGPT
+  const [activeComponent, setActiveComponent] = useState('home');
+
+  const changeComponentOnClick = component => {
+    setActiveComponent(component);
+  };
+  //fim
   return (
     <div>
-      <Header />
-      <ReadAll />
+      <Header onButtonClick={changeComponentOnClick} />
+      {activeComponent === 'home' && <ReadAll />}
+      {activeComponent === 'search' && <ReadById />}
     </div>
   )
 }

@@ -1,20 +1,16 @@
 import "./Header.css";
 
-function Header() {
-
-    const btn = document.querySelectorAll('button');
-    for (let bt of btn) {
-        bt.addEventListener('click', () => {
-            bt.style.backgroundColor = 'red'
-        })
+function Header({ onButtonClick }) {
+    const handleClick = (component) => {
+        onButtonClick(component)
     }
 
     return (
         <header className="Header">
             <img src="../src/assets/react.svg" alt="logo" />
             <div className="buttons-div">
-                <button href="#">Home</button>
-                <button href="#">Criar</button>
+                <button onClick={() => handleClick('home')}>Home</button>
+                <button onClick={() => handleClick('search')}>Buscar por ID</button>
             </div>
         </header>
     )

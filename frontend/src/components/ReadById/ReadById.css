@@ -1,0 +1,15 @@
+.ReadById {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 20px 0;
+}
+
+.input-div {
+    display: flex;
+    gap: 10px;
+}
