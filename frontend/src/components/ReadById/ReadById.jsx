@@ -4,28 +4,33 @@ import './ReadById.css'
 
 
 function ReadById() {
+    let card = useRef(false);
     //inicio do bloco feito com ajuda do chatgpt
     const input = useRef(null);
-    function buscaIdItem(id) {
-        request(id);
+    function buscaIdItem(event) {
+        if (event.key != 'Enter' || !event.target.value) {
+            return
+        }
+        request(event.target.value);
+        event.target.value = ''
     }
     useEffect(() => {
-        input.current.addEventListener('keypress', (event) => {
-            if (event.key != 'Enter') {
-                return
-            }
-            buscaIdItem(event.target.value)
-            event.target.value = ''
+        input.current.addEventListener('keyup', (event) => {
+            buscaIdItem(event)
+        });
+        input.current.removeEventListener('keyup', (event) => {
+            buscaIdItem(event)
         });
     }, []);
     //fim do bloco
     //const [nomedoestado, nomedafuncaoqueatualizaoestado] = usestate([])
     const [item, setItem] = useState([]);
     async function request(id) {
-        const url = `http://localhost:3000/itens/${id}`;
+        const url = `http://localhost:3000/personagem/${id}`;
         const response = await fetch(url);
         const data = await response.json();
         setItem(data)
+        card.current = true;
     }
 
     return (
@@ -35,7 +40,7 @@ function ReadById() {
                 <input type="text" ref={input} />
             </div>
             <div className="main">
-                <Card key={'card-' + item._id} item={item} />
+                {card.current && <Card key={'card-' + item._id} item={item} />}
             </div>
         </div>
     )

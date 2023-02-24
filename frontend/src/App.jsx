@@ -13,7 +13,7 @@ function App() {
   };
   //fim
   return (
-    <div>
+    <div className='main-div'>
       <Header onButtonClick={changeComponentOnClick} />
       {activeComponent === 'home' && <ReadAll />}
       {activeComponent === 'search' && <ReadById />}
